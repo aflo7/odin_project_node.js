@@ -4,4 +4,17 @@ html
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
+    nav.navWrap
+      div.nav1
+        button(onclick="location.href='http://localhost:3000/catalog'" type='button') Home
+        button(onclick="location.href='http://localhost:3000/catalog/book'" type='button') All books 
+        button(onclick="location.href='http://localhost:3000/catalog/author'" type='button') All authors
+        button(onclick="location.href='http://localhost:3000/catalog/genre'" type='button') All genres
+        button(onclick="location.href='http://localhost:3000/catalog/bookInstance'" type='button') All book-instances
+      div.nav2
+        button Create new author 
+        button Create new genre 
+        button Create new book 
+        button Create new book-instance  
+
     block content

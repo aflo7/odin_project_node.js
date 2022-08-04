@@ -1,5 +1,10 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  h1 Local Library
+  div.authorCount 
+    h3 The library has the following record counts:
+    div Authors: #{authorCount}
+    div Books: #{bookCount}
+    div Genres: #{genreCount}
+    div Book Instances: #{bookInstanceCount}
