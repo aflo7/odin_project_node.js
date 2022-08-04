@@ -1,7 +1,7 @@
 body {
-  margin: 0;
-  padding: 0;
-  font: 18px "Lucida Grande", Helvetica, Arial, sans-serif;
+  padding: 0px;
+  margin: 0px;
+  font: 16pt "Lucida Grande", Helvetica, Arial, sans-serif;
   background-color: tan;
 }
 
@@ -10,18 +10,19 @@ a {
 }
 button {
   cursor: pointer;
+  margin: 5px;
+  font-size: 12pt;
 }
-.authorCount {
-  margin-bottom: 5px;
-}
+
 .nav1 {
-  background-color: red;
+  background-color: white;
   display: flex;
   flex-direction: column;
+
 }
 
 .nav2 {
-  background-color: blue;
+  background-color: rgb(186, 186, 255);
   display: flex;
   flex-direction: column;
 }
@@ -30,5 +31,19 @@ button {
   width: 180px;
   display: flex;
   flex-direction: column;
-  background-color: red;
+}
+.indexWrap {
+  background-color: white;
+}
+
+.authorForm {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.notImplemented {
+  background-color: lightcoral;
+  border: none;
 }

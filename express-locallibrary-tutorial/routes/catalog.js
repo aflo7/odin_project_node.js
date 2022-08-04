@@ -81,12 +81,49 @@ router.get("/genre", (req, res) => {
   })
 })
 
-router.get("/:object/:id", function (req, res) {
-  res.send("/:object/:id")
+router.get("/book/:id", (req, res) => {
+  Book.find(function (err, result) {
+    if (err) {
+      return console.error(err)
+    }
+    if (!result[req.params.id - 1]) {
+      return console.error(err)
+    }
+    return res.send(result[req.params.id - 1])
+  })
 })
 
-router.get("/book/:id", (req, res) => {})
-router.post("/book/create", (req, res) => {})
-
+router.get("/author/create", (req, res) => {
+  res.render("createAuthorForm")
+})
+router.post("/author/createNew", (req, res) => {
+ 
+  if (
+    !req.body.first_name ||
+    !req.body.family_name ||
+    !req.body.date_of_birth ||
+    !req.body.date_of_death
+  ) {
+    return console.error("all fields must be filled in")
+  }
+  var newAuthor
+  try {
+    newAuthor = new Author({
+      first_name: req.body.first_name,
+      family_name: req.body.family_name,
+      date_of_birth: new Date(req.body.date_of_birth),
+      date_of_death: new Date(req.body.date_of_death)
+    })
+  } catch (error) {
+    return console.error(error)
+  }
+  // here is the logic to create a new author to the db
+  newAuthor.save().then((savedDoc) => {
+    if (!savedDoc) {
+      return console.error("savedDoc is not defined")
+    }
+    return res.redirect("/")
+  })
+})
 router.delete("/book/delete/:id", (req, res) => {})
 module.exports = router
