@@ -1,0 +1,33 @@
+body {
+  padding: 20px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+.message {
+  background-color: rgb(46, 98, 255);
+  color: white;
+  margin-bottom: 5px;
+  padding: 10px;
+}
+
+.messageText {
+  font-size: 16pt;
+}
+
+.createWrapper{
+  background-color: rgb(255, 30, 30);
+  color: white;
+  padding: 10px;
+  font-size: 14pt;
+}
+
+.createNewLink {
+padding: 10px;
+background-color: gray;
+color: white;
+cursor: pointer;
+font-size: 14pt;
+}

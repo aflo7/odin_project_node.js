@@ -1,0 +1,24 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+
+  if arr
+    #messageWrapper
+      each message in arr
+        div.message 
+          div.messageText=message.text
+          div='by: ' + message.user
+          div='Posted on: ' + message.added
+  if plus
+    div.createNewLink(onclick="location.href='http://localhost:3000/new';") +
+  else 
+    div.createNewLink(onclick="location.href='http://localhost:3000/';") -
+    
+  if createNewMessageForm
+    div.createWrapper="Create"
+      form(method='post' action='/new')
+        input(type='text' name='message' placeholder='Enter message...' required)
+        input(type='text' name='user' placeholder='Enter username...' required)
+        input(type='submit' value='Submit')
