@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  
+  div.indexWrap
+    h1.localLibraryHomeTitle Local Library 
+    div.indexTitle #{title}
+
+  if error
+    div.error='there was an error loading content'
+  if countdata
+    div.countElements  
+      h3 The library has the following record counts:
+      div Authors: #{countdata.author_count}
+      div Books: #{countdata.book_count}
+      div Genres: #{countdata.genre_count}
+      div Copies: #{countdata.book_instance_count}    
+      div Copies Available: #{countdata.book_instance_available_count}

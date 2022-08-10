@@ -1,0 +1,84 @@
+body {
+  padding: 0px;
+  margin: 0px;
+  font: 14pt "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+button {
+  cursor: pointer;
+  margin: 5px;
+  font-size: 12pt;
+}
+
+.nav1 {
+  background-color: white;
+
+}
+
+.nav2 {
+  background-color: rgb(186, 186, 255);
+}
+
+.navWrap {
+  display: flex;
+  flex-direction: column;
+}
+.indexWrap {
+  background-color: white;
+}
+
+.authorForm {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+.notImplemented {
+  background-color: lightcoral;
+  border: none;
+}
+
+.countElements {
+  margin: 15px;
+}
+
+.localLibraryHomeTitle {
+  margin: 15px;
+}
+
+.indexTitle {
+ margin: 15px;
+ font-weight: bold;
+}
+
+.bookInstanceListElement {
+  padding: 5px;
+}
+
+.bookInstanceStatus {
+color: red;
+}
+
+.bookInstanceAvailable {
+  color: green;
+  background-color: lightgreen;
+}
+
+.authorTitle {
+  margin: 15px;
+}
+
+.genreListTitle {
+  margin: 15px;
+}
+
+.bookInstanceListTitle {
+  margin: 15px;
+}
+
+.bookListTitle {
+  margin: 15px;
+}

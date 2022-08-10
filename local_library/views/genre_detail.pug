@@ -1,0 +1,13 @@
+extends layout 
+block content 
+  h1=title
+  h1='genre detail'
+
+  h1 books with #{genre.name} genre
+  ul
+    each book in booksWithGenre 
+      li.
+        #{book.title}
+        #{book.summary}
+    else 
+      li no results    

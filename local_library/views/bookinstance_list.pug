@@ -1,0 +1,17 @@
+extends layout 
+//- Available', 'Maintenance', 'Loaned', 'Reserved'
+block content
+  h1.bookInstanceListTitle= title
+  ul
+    each bookInstance in bookInstanceList
+      li.bookInstanceListElement
+        a(href=bookInstance.url) #{bookInstance.book.title}
+        if bookInstance.status == 'Available'
+          span.bookInstanceAvailable #{bookInstance.status}
+        else
+          span.bookInstanceStatus #{bookInstance.status} 
+        span #{bookInstance.imprint}
+    else
+      li There are no book copies in this library    
+        
+
