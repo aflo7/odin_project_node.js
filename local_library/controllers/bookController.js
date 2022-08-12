@@ -111,7 +111,6 @@ exports.book_create_post = function (req, res) {
     genres = req.body["genres[]"]
   }
 
-  console.log(req.body)
   var book = new Book({
     title: req.body.title,
     author: req.body.author,
@@ -119,13 +118,12 @@ exports.book_create_post = function (req, res) {
     isbn: req.body.isbn,
     genre: genres
   })
-  console.log(book.url)
   book.save((err, result) => {
     if (err) {
       return next(err)
     }
 
-    res.send("successfully saved a new book...")
+    res.redirect("/")
   })
   
 }
