@@ -1,13 +1,13 @@
 extends layout 
 block content 
-  h1=title
-  h1='genre detail'
+  h1.genreListTitle Genre: #{genre.name}
 
-  h1 books with #{genre.name} genre
+  h4 Books
   ul
     each book in booksWithGenre 
-      li.
-        #{book.title}
-        #{book.summary}
+      li.genreListElement
+        a(href=book.url)
+          div.genreBookTitle #{book.title}
+        div #{book.summary}
     else 
       li no results    

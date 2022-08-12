@@ -1,0 +1,30 @@
+extends layout 
+
+block content 
+  h1 Title: #{book.title}
+  h4 Author: 
+    a(href=book.author.url) #{book.author.name}
+  h4 Summary: #{book.summary}
+  h4 ISBN: #{book.isbn}
+  h4 Genre: 
+    each genre in book.genre 
+      a(href=genre.url)
+        div #{genre.name}
+    else 
+      div No genre
+  a(href=`http://localhost:3000/catalog/book/update/${book._id}`) 
+    button Update
+  div.bookDetailCopiesWrapper 
+    h2.bookDetailCopiesTitle Copies
+
+    ul
+      each copy in book_instances
+        li.copyWrapper
+          if copy.status == 'Available'
+            div.greenStatus #{copy.status}
+          else
+            div.otherStatus #{copy.status}  
+          div #{copy.imprint}
+            div #{copy._id}
+      else
+        li no copies available    

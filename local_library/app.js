@@ -5,7 +5,6 @@ var cookieParser = require("cookie-parser")
 var logger = require("morgan")
 
 var indexRouter = require("./routes/index")
-var usersRouter = require("./routes/users")
 var catalogRouter = require("./routes/catalog")
 
 var app = express()
@@ -13,59 +12,11 @@ var app = express()
 //Import the mongoose module
 var mongoose = require("mongoose")
 
-// import the models
-var Author = require("./models/author")
-var Book = require("./models/book")
-var BookInstance = require("./models/book")
-var Genre = require("./models/book")
-
 //Set up default mongoose connection
 var mongoDB =
   "mongodb+srv://andres-owner:November20%402@cluster0.bg92a.mongodb.net/local_library?retryWrites=true&w=majority"
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true })
-
-const createAuthor = (first_name, family_name, date_of_birth) => {
-  if (!first_name || !family_name || !date_of_birth) {
-    return
-  }
-  var authorToBeAdded = new Author({
-    first_name: first_name,
-    family_name: family_name,
-    date_of_birth: date_of_birth
-  })
-
-  Author.findOne(
-    // if author exists, don't create
-    { first_name: first_name, family_name: family_name },
-    (err, authorThatWasFound) => {
-      if (authorThatWasFound) {
-        console.log("that author already exists... cannot create")
-        return
-      }
-
-      authorToBeAdded.save((err) => {
-        if (err) {
-          console.log("error saving author")
-          return console.error(err)
-        }
-
-        console.log("creating new author..." + first_name)
-      })
-    }
-  )
-}
-
-// createAuthor(
-//   (first_name = "Cool"),
-//   (family_name = "H"),
-//   (date_of_birth = Date.now())
-// )
-
-// stephen king author id = 62ebdbdd34b6002a07704dee
-// fantasy genre id = 62ebd5297c4018e29bc1a962
-// science fiction genre id = 62ebd5297c4018e29bc1a964
-// french poetry genre id = 62ebd5297c4018e29bc1a966
-
+// mongodb+srv://andres-owner:November20@2@cluster0.bg92a.mongodb.net/local_library?retryWrites=true&w=majority
 //Get the default connection
 var db = mongoose.connection
 
@@ -83,7 +34,6 @@ app.use(cookieParser())
 app.use(express.static(path.join(__dirname, "public")))
 
 app.use("/", indexRouter)
-app.use("/users", usersRouter)
 app.use("/catalog", catalogRouter)
 
 // catch 404 and forward to error handler

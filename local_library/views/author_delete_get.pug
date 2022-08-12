@@ -1,0 +1,18 @@
+extends layout 
+
+block content
+  h1=title 
+
+  div #{author.name}
+  if authorBooks.length > 0
+    div Delete the following books before attempting to delete the author
+  ul 
+    each book in authorBooks 
+      a(href=book.url)
+        li #{book.title}
+    else 
+      li Are you sure you want to delete?
+
+      form(action=`http://localhost:3000/catalog/author/delete/${author.id}` method="post")
+        input.deleteButton(type='submit' value='DELETE')
+        input.returnHome(type='button' onclick="location.href='http://localhost:3000/'" value='Go home')

@@ -1,0 +1,29 @@
+extends layout 
+
+block content 
+  title="create Book"
+  form.bookForm(action='/catalog/book/createNew' method='post')
+    label(for='title') Title:
+    input(required type='text' name='title' id='title')
+
+    div Author:
+    select.authorDropDownWrap(name='author')
+      each author in authors 
+        option(value=author.id) #{author.name}
+
+    div Genre:
+    div.genreCheckboxWrap
+      each genre in genres
+          div.genreCheckbox
+            label(for=genre.name) #{genre.name}
+            input(type='checkbox' name='genres[]' value=genre.id)
+    
+    div.ISBNWrapper
+      div.ISBNtext ISBN:
+      input(required type='text' name='isbn' minlength=13 maxlength=13)
+
+
+    div.summaryWrapper
+      div.summaryText Summary:
+      input(required type='text' name='summary')  
+    button(type='submit' ) Submit New Book

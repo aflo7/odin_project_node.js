@@ -2,8 +2,8 @@ extends layout
 
 block content
   form.authorForm(action='/catalog/author/createNew' method='post')
-    input(type='text' name='first_name' placeholder='First name' required='')
-    input(type='text' name="family_name" placeholder="Family name" required='')
-    input(type='text' name="date_of_birth" placeholder="Date of birth")
-    input(type='text' name="date_of_death" placeholder="Date of death")
+    input(type='text' name='first_name' placeholder='First name' required)
+    input(type='text' name="family_name" placeholder="Family name" required)
+    input(type='text' name="date_of_birth" placeholder="Date of birth" required)
+    input(type='text' name="date_of_death" placeholder="Date of death" required)
     button(type='submit' ) Submit New Author

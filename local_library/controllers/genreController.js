@@ -8,7 +8,7 @@ exports.genre_list = function (req, res, next) {
     .sort({ name: 1 })
     .exec((err, genres) => {
       if (err) {
-        next(err)
+        return next(err)
       }
       res.render("genre_list", { title: "Genres", genres: genres })
     })
@@ -28,12 +28,10 @@ exports.genre_detail = function (req, res, next) {
     },
     function (err, result) {
       if (err) {
-        next(err)
+        return next(err)
       }
 
-    //   res.send(result)
       res.render("genre_detail", {
-        title: "Genre Detail Page",
         genre: result.genre,
         booksWithGenre: result.booksWithGenre
       })

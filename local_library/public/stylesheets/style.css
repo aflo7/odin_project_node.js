@@ -82,3 +82,74 @@ color: red;
 .bookListTitle {
   margin: 15px;
 }
+
+.genreBookTitle {
+color: rgb(95, 181, 95);
+cursor: pointer;
+width: fit-content;
+}
+
+.genreListElement {
+  padding: 5px;
+}
+
+
+.bookDetailCopiesWrapper {
+background-color: rgb(217, 217, 217);
+padding: 15px;
+}
+
+.bookDetailCopiesTitle {
+  margin: 15px;
+}
+.greenStatus {
+  color: rgb(20, 194, 20);
+}
+.otherStatus {
+color: black;
+}
+
+.deleteButton {
+background-color: red;
+color: white;
+border: none;
+cursor: pointer;
+padding: 8px;
+}
+
+.returnHome {
+  background-color: blue;
+  border: none;
+  cursor: pointer;
+  color: white;
+  padding: 8px;
+}
+
+.bookForm {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  border: 2px solid black;
+  padding: 15px;
+  margin: 0 auto;
+  margin-top: 15px;
+}
+
+.genreCheckboxWrap {
+/* background-color: rgb(136, 136, 255); */
+display: flex;
+flex-direction: row;
+justify-content: center;
+/* border: 1px solid black; */
+}
+
+.genreCheckbox {
+padding: 10px;
+}
+
+.ISBNWrapper, .summaryWrapper {
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+padding: 5px;
+}
