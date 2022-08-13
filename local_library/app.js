@@ -6,7 +6,7 @@ var logger = require("morgan")
 require("dotenv").config()
 var indexRouter = require("./routes/index")
 var catalogRouter = require("./routes/catalog")
-
+const compression = require('compression');
 var app = express()
 
 //Import the mongoose module
@@ -25,7 +25,7 @@ db.on("error", console.error.bind(console, "MongoDB connection error:"))
 // view engine setup
 app.set("views", path.join(__dirname, "views"))
 app.set("view engine", "pug")
-
+app.use(compression()); //Compress all routes, make requests faster
 app.use(logger("dev"))
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
