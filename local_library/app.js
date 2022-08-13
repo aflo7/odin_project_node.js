@@ -3,7 +3,7 @@ var express = require("express")
 var path = require("path")
 var cookieParser = require("cookie-parser")
 var logger = require("morgan")
-
+require("dotenv").config()
 var indexRouter = require("./routes/index")
 var catalogRouter = require("./routes/catalog")
 
@@ -13,8 +13,7 @@ var app = express()
 var mongoose = require("mongoose")
 
 //Set up default mongoose connection
-var mongoDB =
-  "mongodb+srv://andres-owner:November20%402@cluster0.bg92a.mongodb.net/local_library?retryWrites=true&w=majority"
+var mongoDB = `mongodb+srv://andres-owner:${process.env.ENCODED}@cluster0.bg92a.mongodb.net/local_library?retryWrites=true&w=majority`
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true })
 // mongodb+srv://andres-owner:November20@2@cluster0.bg92a.mongodb.net/local_library?retryWrites=true&w=majority
 //Get the default connection
